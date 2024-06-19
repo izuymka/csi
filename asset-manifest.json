@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/csi/static/css/main.918f3c70.css",
+    "main.js": "/csi/static/js/main.3a3f9e58.js",
+    "index.html": "/csi/index.html",
+    "main.918f3c70.css.map": "/csi/static/css/main.918f3c70.css.map",
+    "main.3a3f9e58.js.map": "/csi/static/js/main.3a3f9e58.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.918f3c70.css",
+    "static/js/main.3a3f9e58.js"
+  ]
+}
