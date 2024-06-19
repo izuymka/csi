@@ -22,9 +22,13 @@ export type ShopForm = {
 
 export type ShopListProps = {
   shops: ShopVO[];
+  incorrectShopList: string[];
 };
 
 export type ShopFromProps = {
   changeShops: React.Dispatch<React.SetStateAction<ShopVO[]>>;
-}
+  shopList: ShopVO[];
+  changeIncorrectShops: React.Dispatch<React.SetStateAction<string[]>>;
+  incorrectShopList: string[];
+};
 

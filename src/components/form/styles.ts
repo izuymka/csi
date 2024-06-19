@@ -7,7 +7,6 @@ export const MainTypography = styled(Typography)({
   color: "#3f51b5",
   fontSize: "2rem",
   fontWeight: "bold",
-  marginTop: "30px",
 });
 
 export const CustomTextField = styled(TextField)({

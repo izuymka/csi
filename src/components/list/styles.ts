@@ -1,5 +1,6 @@
 import { styled } from "@mui/system";
 import List from "@mui/material/List";
+import { ListItem } from "@mui/material";
 
 export const CustomList = styled(List)({
   display: "flex",
@@ -7,16 +8,16 @@ export const CustomList = styled(List)({
   justifyContent: "center",
   flexDirection: "column",
   width: "100%",
-  margin: "0 auto",
   maxWidth: "fit-content",
   bgcolor: "background.paper",
 });
 
-export const CustomListItem = styled("div")({
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
+export const CustomListItem = styled(ListItem)({
   width: "100%",
+  bgcolor: "background.paper",
+  margin: "10px 10px",
+  border: "1px solid #ccc",
+  borderRadius: "8px",
 });
 
 

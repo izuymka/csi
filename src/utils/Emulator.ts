@@ -22,8 +22,9 @@ export default class Emulator implements ShopsFakeFetcher {
           resolve(filteredShops);
         }, 500);
       } catch (error) {
-        reject("An error occurred while fetching shops.");
+        reject("Произошла ошибка при получении данных с бэкенда.");
       }
     });
   }
 }
+

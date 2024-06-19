@@ -1,4 +1,3 @@
-// import { Box, TextField, Button, Typography } from "@mui/material";
 import {
   MainTypography,
   CustomTextField,
@@ -10,23 +9,38 @@ import { emulator } from "../../App";
 import { validate } from "../../utils/validate";
 import { ShopFromProps } from "../../types/types";
 
-function ShopForm({ changeShops }: ShopFromProps) {
-  const [inputValue, setInputVaue] = useState("");
+function ShopForm({
+  changeShops,
+  shopList,
+  changeIncorrectShops,
+  incorrectShopList,
+}: ShopFromProps) {
+  const [inputValue, setInputValue] = useState("");
 
   async function handleSubmitForm(e: React.FormEvent) {
     e.preventDefault();
     const stringInputArray = inputValue.split(",");
     const result = await validate(stringInputArray);
     console.log(result);
-    let numbers = result.correct.map((item) => +item);
-    let shops = await emulator.getShopsByIds(numbers);
-    console.log(shops);
-    changeShops(shops);
-    setInputVaue("");
+
+    let numericIds = result.correct.map((item) => +item);
+    let incorrectShops = result.incorrect;
+    console.log(numericIds);
+    console.log(incorrectShops);
+
+    try {
+      let shops = await emulator.getShopsByIds(numericIds);
+
+      changeShops([...shopList, ...shops]);
+      changeIncorrectShops([...incorrectShopList, ...incorrectShops]);
+      setInputValue("");
+    } catch (error) {
+      console.error("Ошибка при загрузке магазинов:", error);
+    }
   }
 
   function handleChangeInput(event: React.ChangeEvent<HTMLInputElement>) {
-    setInputVaue(event.target.value);
+    setInputValue(event.target.value);
   }
 
   return (
@@ -49,7 +63,7 @@ function ShopForm({ changeShops }: ShopFromProps) {
           type="submit"
           disableElevation
         >
-          Применить
+          Добавить
         </CustomButton>
       </FormBox>
     </>
